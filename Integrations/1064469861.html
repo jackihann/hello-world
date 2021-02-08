@@ -1,114 +1,91 @@
-<p>Power Automate (previously Microsoft Flow) offers a rich set of actions that you can use to automate your workflows with iAuditor, such as <a href="https://help.safetyculture.com/en_us/1064010991-SyxsdwFEw" target="_blank">uploading inspection
-    reports</a>. However, you can take your integrations game to the next level by exporting data within inspections, specifically question responses, using Power Automate&rsquo;s Workflow Definition Language, called expressions.</p>
-
-<p>This article outlines some of the Power Automate expressions that you can use to export iAuditor inspection data. If you want to take a look at how the expressions work in action, check out our guides on creating flows automatically export
-  inspection data to <a href="https://help.safetyculture.com/en_us/1064010807-SyiPqvt4D" target="_blank">SharePoint lists</a> and <a href="https://help.safetyculture.com/en_us/1064010930-r1N7dPFEv" target="_blank">Excel Online</a>.</p>
-
-<h2>Before you begin</h2>
-
-<p>When it comes to exporting inspection data on Power Automate, the &ldquo;Filter array&rdquo; and &ldquo;Compose&rdquo; actions are used in combination to export inspection questions&#39; responses.</p>
-
-<p>Please note that inspection data of questions that are within <a href="https://help.safetyculture.com/en_us/1064043967-SJKkM_FNv" rel="noopener noreferrer" target="_blank" title="">Repeat sections</a>, or multiple-choice questions that have
-  &ldquo;multiple selection&rdquo; enabled cannot be exported.</p>
-
-<p>All expressions contain references to the names of actions you create in a flow, such as the expression &ldquo;body(&#39;Get_a_specific_inspection&#39;)[&#39;items&#39;]&rdquo; referencing the &ldquo;Get a specific inspection&rdquo; action. To
-  ensure that your expressions can be easily created without issue, please avoid using the following symbols in your action names should you rename them:</p>
-
-<ul>
-  <li>Left angle bracket: <strong>&lt;</strong></li>
-  <li>Right angle bracket: <strong>&gt;</strong></li>
-  <li>Percent: <strong>%</strong></li>
-  <li>Ampersand or and: <strong>&amp;</strong></li>
-  <li>Backslash: <strong>\</strong></li>
-  <li>Forward slash: <strong>/</strong></li>
-  <li>Question mark: <strong>?</strong></li>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2022.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    li.li3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    li.li5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Courier; color: #000000; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+    span.s2 {text-decoration: underline ; font-kerning: none; color: #0000e9; -webkit-text-stroke: 0px #0000e9}
+    span.s3 {-webkit-text-stroke: 0px #000000}
+    span.s4 {font: 12.0px Times; -webkit-text-stroke: 0px #000000}
+    span.s5 {font: 12.0px Times; font-kerning: none}
+    span.s6 {font: 12.0px Courier; font-kerning: none}
+    ol.ol1 {list-style-type: decimal}
+    ul.ul1 {list-style-type: disc}
+  </style>
+</head>
+<body>
+<p><span>Power Automate (previously Microsoft Flow) offers a rich set of actions that you can use to automate your workflows with iAuditor, such as <a href="https://help.safetyculture.com/en_us/1064010991-SyxsdwFEw"><span class="s2">uploading inspection reports</span></a>. However, you can take your integrations game to the next level by exporting data within inspections, specifically question responses, using Power Automate’s Workflow Definition Language, called expressions.</span></p>
+<p><span>This article outlines some of the Power Automate expressions that you can use to export iAuditor inspection data. If you want to take a look at how the expressions work in action, check out our guides on creating flows automatically export inspection data to <a href="https://help.safetyculture.com/en_us/1064010807-SyiPqvt4D"><span class="s2">SharePoint lists</span></a> and <a href="https://help.safetyculture.com/en_us/1064010930-r1N7dPFEv"><span class="s2">Excel Online</span></a>.</span></p>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span><b>Before you begin</b></span></h2>
+<p><span>When it comes to exporting inspection data on Power Automate, the “Filter array” and “Compose” actions are used in combination to export inspection questions' responses.</span></p>
+<p><span>Please note that inspection data of questions that are within <a href="https://help.safetyculture.com/en_us/1064043967-SJKkM_FNv"><span class="s2">Repeat sections</span></a>, or multiple-choice questions that have “multiple selection” enabled cannot be exported.</span></p>
+<p><span>All expressions contain references to the names of actions you create in a flow, such as the expression “body('Get_a_specific_inspection')['items']” referencing the “Get a specific inspection” action. To ensure that your expressions can be easily created without issue, please avoid using the following symbols in your action names should you rename them:</span></p>
+<ul class="ul1">
+  <li class="li3"><span class="s3"></span><span>Left angle bracket: <b>&lt;</b></span></li>
+  <li class="li3"><span class="s3"></span><span>Right angle bracket: <b>&gt;</b></span></li>
+  <li class="li3"><span class="s3"></span><span>Percent: <b>%</b></span></li>
+  <li class="li3"><span class="s3"></span><span>Ampersand or and: <b>&amp;</b></span></li>
+  <li class="li3"><span class="s3"></span><span>Backslash: <b>\</b></span></li>
+  <li class="li3"><span class="s3"></span><span>Forward slash: <b>/</b></span></li>
+  <li class="li3"><span class="s3"></span><span>Question mark: <b>?</b></span></li>
 </ul>
-
-<h2>Filter array</h2>
-
-<p>The &ldquo;Data Operations&rdquo; connector&rsquo;s &ldquo;Filter&rdquo; action is used to specify the question, of which its response data you wish to export.</p>
-
-<p><img src="https://cdn.kustomerhostedcontent.com/media/5f43d9f2d8e9a40019dc913b/21a0e9ddc69e47ceba5e5f05c14cfe32.png" style="width: 600px;" class="fr-fic fr-dii"></p>
-
-<p>As you may be creating several filter arrays to specify different questions&#39; responses you wish to export, we recommend that you click the 3 dots on the upper-right of the action and &ldquo;Rename&rdquo; it to something you can refer back to
-  as the question label, such as &ldquo;Jobsite Hazard Check&rdquo;.</p>
-
-<h3>Array to filter</h3>
-
-<p>Click the &ldquo;Array to filter&rdquo; field, then copy and paste the following expressions accordingly, based on where the question is in the inspection:</p>
-
-<ul>
-  <li>Title Page
-    <pre><span>body(&#39;Get_a_specific_inspection&#39;)[&#39;header_items&#39;]</span></pre>
-  </li>
-  <li>All other inspection pages
-    <pre><span>body(&#39;Get_a_specific_inspection&#39;)[&#39;items&#39;]</span></pre>
-  </li>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span><b>Filter array</b></span></h2>
+<p><span>The “Data Operations” connector’s “Filter” action is used to specify the question, of which its response data you wish to export.</span></p>
+<p><span></span></p>
+<p><span>As you may be creating several filter arrays to specify different questions' responses you wish to export, we recommend that you click the 3 dots on the upper-right of the action and “Rename” it to something you can refer back to as the question label, such as “Jobsite Hazard Check”.</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; color: #000000; -webkit-text-stroke: #000000"><span><b>Array to filter</b></span></h3>
+<p><span>Click the “Array to filter” field, then copy and paste the following expressions accordingly, based on where the question is in the inspection:</span></p>
+<ul class="ul1">
+  <li class="li5"><span class="s4"></span><span class="s5">Title Page </span><span>body('Get_a_specific_inspection')['header_items']<br>
+</span></li>
+  <li class="li5"><span class="s4"></span><span class="s5">All other inspection pages </span><span>body('Get_a_specific_inspection')['items']<br>
+</span></li>
 </ul>
-
-<h3>Choose a value</h3>
-
-<p>Click the &ldquo;Choose a value&rdquo; field, then copy and paste the following expressions accordingly, based on how you wish to filter for the question:</p>
-
-<ol>
-  <li>Filter by the unique identifier (recommended) with the <a href="https://help.safetyculture.com/en_us/1064338729-SyqNuPYND" target="_blank">question item ID</a>as the corresponding value
-    <pre><span>item()[&#39;item_id&#39;]</span></pre>
-  </li>
-  <li>Filter by the label with the question label or name as the corresponding value
-    <pre><span>item()[&#39;label&#39;]</span></pre>
-  </li>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; color: #000000; -webkit-text-stroke: #000000"><span><b>Choose a value</b></span></h3>
+<p><span>Click the “Choose a value” field, then copy and paste the following expressions accordingly, based on how you wish to filter for the question:</span></p>
+<ol class="ol1">
+  <li class="li3"><span class="s3"></span><span>Filter by the unique identifier (recommended) with the <a href="https://help.safetyculture.com/en_us/1064338729-SyqNuPYND"><span class="s2">question item ID</span></a>as the corresponding value </span><span class="s6">item()['item_id']<br>
+</span></li>
+  <li class="li3"><span class="s3"></span><span>Filter by the label with the question label or name as the corresponding value </span><span class="s6">item()['label']<br>
+</span></li>
 </ol>
-
-<h2>Compose</h2>
-
-<p>The &ldquo;Data Operations&rdquo; connector&rsquo;s &ldquo;Compose&rdquo; action is used to extract the response from the question item you specify in the &ldquo;Filter array&rdquo; action.</p>
-
-<p><img src="https://cdn.kustomerhostedcontent.com/media/5f43d9f2d8e9a40019dc913b/fdd5b8ebf1f25166b7b9ec98c52f83d2.png" style="width: 600px;"></p>
-
-<p>Please note that the &lsquo;Filter_array&rsquo; in the samples below refers to the default name of the filter array action. If you followed our recommendation and renamed the action, you should match the expression with the new name. For example,
-  if the filter array action was renamed to &ldquo;Jobsite Hazard Check&rdquo;, the expression should replace &lsquo;Filter_array&rsquo; with &lsquo;Jobsite_Hazard_Check&rsquo;, using underscores (_) to substitute spaces.</p>
-
-<h3>Inputs</h3>
-
-<p>Click the &ldquo;Inputs&rdquo; field, then copy and paste the following expressions accordingly, based on the <a href="https://help.safetyculture.com/en_us/1105265264-rkB0Z_K4P" rel="noopener noreferrer" target="_blank" title="">question&rsquo;s
-    response type</a>:</p>
-
-<ul>
-  <li>Multiple-choice (excluding multiple selection enabled questions)
-    <pre><span spellcheck="false">body(&#39;Filter_array&#39;)?[0]?[&#39;responses&#39;]?[&#39;selected&#39;]?[0]?[&#39;label&#39;]</span></pre>
-  </li>
-  <li>Text answer (including Person, Document number, and Number responses)
-    <pre><span spellcheck="false">body(&#39;Filter_array&#39;)?[0]?[&#39;responses&#39;]?[&#39;text&#39;]</span></pre>
-  </li>
-  <li>Date &amp; Time (including Inspection date response)
-    <pre><span spellcheck="false">body(&#39;Filter_array&#39;)?[0]?[&#39;responses&#39;]?[&#39;datetime&#39;]</span></pre>
-  </li>
-  <li>Location (including Inspection location)
-    <pre><span spellcheck="false">body(&#39;Filter_array&#39;)?[0]?[&#39;responses&#39;]?[&#39;location_text&#39;]</span></pre>
-  </li>
-  <li>Checkbox and Slider
-    <pre><span spellcheck="false">body(&#39;Filter_array&#39;)?[0]?[&#39;responses&#39;]?[&#39;value&#39;]</span></pre>
-  </li>
-  <li>Signature (name)
-    <pre><span spellcheck="false">body(&rsquo;Filter_array&rsquo;)?[0]?[&lsquo;responses&#39;]?[&#39;name&#39;]</span></pre>
-  </li>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span><b>Compose</b></span></h2>
+<p><span>The “Data Operations” connector’s “Compose” action is used to extract the response from the question item you specify in the “Filter array” action.</span></p>
+<p><span></span></p>
+<p><span>Please note that the ‘Filter_array’ in the samples below refers to the default name of the filter array action. If you followed our recommendation and renamed the action, you should match the expression with the new name. For example, if the filter array action was renamed to “Jobsite Hazard Check”, the expression should replace ‘Filter_array’ with ‘Jobsite_Hazard_Check’, using underscores (_) to substitute spaces.</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; color: #000000; -webkit-text-stroke: #000000"><span><b>Inputs</b></span></h3>
+<p><span>Click the “Inputs” field, then copy and paste the following expressions accordingly, based on the <a href="https://help.safetyculture.com/en_us/1105265264-rkB0Z_K4P"><span class="s2">question’s response type</span></a>:</span></p>
+<ul class="ul1">
+  <li class="li3"><span class="s3"></span><span>Multiple-choice (excluding multiple selection enabled questions) </span><span class="s6">body('Filter_array')?[0]?['responses']?['selected']?[0]?['label']<br>
+</span></li>
+  <li class="li3"><span class="s3"></span><span>Text answer (including Person, Document number, and Number responses) </span><span class="s6">body('Filter_array')?[0]?['responses']?['text']<br>
+</span></li>
+  <li class="li3"><span class="s3"></span><span>Date &amp; Time (including Inspection date response) </span><span class="s6">body('Filter_array')?[0]?['responses']?['datetime']<br>
+</span></li>
+  <li class="li5"><span class="s4"></span><span class="s5">Location (including Inspection location) </span><span>body('Filter_array')?[0]?['responses']?['location_text']<br>
+</span></li>
+  <li class="li5"><span class="s4"></span><span class="s5">Checkbox and Slider </span><span>body('Filter_array')?[0]?['responses']?['value']<br>
+</span></li>
+  <li class="li5"><span class="s4"></span><span class="s5">Signature (name) </span><span>body(’Filter_array’)?[0]?[‘responses']?['name']<br>
+</span></li>
 </ul>
-
-<h3>Inputs - Sites</h3>
-
-<p>If your organization uses the <a href="https://help.safetyculture.com/en_us/1063650235-Bkf3JdFND" rel="noopener noreferrer" target="_blank" title="">Sites feature</a>, the site of an inspection, as well as the site&rsquo;s area and region can also
-  be exported. As an exception, you don&rsquo;t need to have a corresponding filter array action to extract the site name, site area, and site region.</p>
-
-<p>Click the &ldquo;Inputs&rdquo; field, then copy and paste the following expressions accordingly:</p>
-
-<ul>
-  <li>Site name
-    <pre><span spellcheck="false">body(&#39;Get_a_specific_inspection&#39;)?[&#39;audit_data&#39;]?[&#39;site&#39;]?[&#39;name&#39;]</span></pre>
-  </li>
-  <li>Site area
-    <pre><span spellcheck="false">body(&#39;Get_a_specific_inspection&#39;)?[&#39;audit_data&#39;]?[&#39;site&#39;]?[&#39;area&#39;]?[&#39;name&#39;]</span></pre>
-  </li>
-  <li>Site region
-    <pre><span spellcheck="false">body(&#39;Get_a_specific_inspection&#39;)?[&#39;audit_data&#39;]?[&#39;site&#39;]?[&#39;region&#39;]?[&#39;name&#39;]</span></pre>
-  </li>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; color: #000000; -webkit-text-stroke: #000000"><span><b>Inputs - Sites</b></span></h3>
+<p><span>If your organization uses the <a href="https://help.safetyculture.com/en_us/1063650235-Bkf3JdFND"><span class="s2">Sites feature</span></a>, the site of an inspection, as well as the site’s area and region can also be exported. As an exception, you don’t need to have a corresponding filter array action to extract the site name, site area, and site region.</span></p>
+<p><span>Click the “Inputs” field, then copy and paste the following expressions accordingly:</span></p>
+<ul class="ul1">
+  <li class="li5"><span class="s4"></span><span class="s5">Site name </span><span>body('Get_a_specific_inspection')?['audit_data']?['site']?['name']<br>
+</span></li>
+  <li class="li5"><span class="s4"></span><span class="s5">Site area </span><span>body('Get_a_specific_inspection')?['audit_data']?['site']?['area']?['name']<br>
+</span></li>
+  <li class="li5"><span class="s4"></span><span class="s5">Site region </span><span>body('Get_a_specific_inspection')?['audit_data']?['site']?['region']?['name']<br>
+</span></li>
 </ul>
+</body>
+</html>
